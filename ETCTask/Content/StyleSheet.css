@@ -1,0 +1,138 @@
+/* Bootstrap Overrides */
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url("fonts/glyphicons-halflings-regular.eot");
+    src: url("fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("fonts/glyphicons-halflings-regular.woff") format("woff"), url("fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg");
+}
+
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.2;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 70px;
+}
+
+body a {
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    color: black;
+    font-size: medium;
+    text-decoration: none;
+    transition: 0.5s all ease;
+}
+
+body a:hover {
+    color: #323232;
+    text-decoration: none;
+}
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container { padding: 0; }
+
+.navbar-color {
+    background-color: #3498db;
+    border-color: #e7e7e7;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus, .nav > li > a:hover, .nav > li > a:focus { background-color: #2980b9; }
+
+.navbar-toggle {
+    background-color: #2c3e50;
+    border: 1px solid blue;
+}
+
+.breadcrumb {
+    background-color: #d0d1d5;
+    font-size: 20px;
+}
+
+.pic-size {
+    height: 130px !important;
+    width: 160px;
+}
+
+.p-hover { text-decoration: none; }
+
+.p-hover:focus { text-decoration: none; }
+
+.p-hover .thumbnail .caption h3 { margin-top: 6px; }
+
+.p-hover .thumbnail .caption p { margin-bottom: 2px; }
+
+.p-hover .thumbnail:hover { border-color: #2980b9; }
+
+#btn-more { width: 100%; }
+
+.dialogStyle {
+    height: auto !important;
+    width: auto !important;
+}
+
+.borderRm { border-top-style: hidden; }
+
+.wd { width: 30%; }
+
+.info-login {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.info-login thead tr th { text-align: center; }
+
+@media (max-width: 767px) {
+    .info-login { width: auto; }
+
+    .logo-i {
+        margin: 0 !important;
+        margin-left: 20px !important;
+        margin-top: 6px !important;
+    }
+
+    .navbar-toggle { margin-right: 24px; }
+}
+
+.mrg { padding: 20px; }
+
+.mrg table { width: 60%; }
+
+.center {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+
+.center div.fnon {
+    float: none !important;
+    margin: auto;
+}
+
+.logo-i {
+    color: blue;
+    float: left;
+    font-size: xx-large;
+    margin-right: 8px;
+    margin-top: 4px;
+}
+
+.red { color: #f44336; }
+
+/*# sourceMappingURL=StyleSheet.css.map */

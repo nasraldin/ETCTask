@@ -1,0 +1,62 @@
+﻿@model ETCTask.Models.Product
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 class="modal-title" id="ModalLabel">Product Details</h3>
+</div>
+<div class="modal-body">
+    <div id="detail-form" title="Product Details">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <table class="table borderRm">
+                    <tr>
+                        <th>Product Id</th>
+                        <th>@Html.DisplayFor(model => model.ProductId)</th>
+                    </tr>
+                    <tr>
+                        <th class="wd">Product Name</th>
+                        <th>
+                            <p class="">
+                                @Html.DisplayFor(model => model.ProductName)
+                            </p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>IsFeatured</th>
+                        <th>
+                            <p class="">
+                                @Html.DisplayFor(model => model.IsFeatured)
+                            </p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Note</th>
+                        <th>
+                            <samp class="">
+                                @Html.DisplayFor(model => model.Note)
+                            </samp>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Creation date</th>
+                        <th>
+                            <p class="">
+                                @Html.DisplayFor(model => model.DateCreated)
+                            </p>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                @if (Model.Icon.IsEmpty())
+                {
+                    Model.Icon = "No_Image_Available.png";
+                }
+                <img src="~/Content/image/@Model.Icon" alt="Not Found!" class="img-responsive"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" type="button" data-dismiss="modal">Colse</button>
+</div>

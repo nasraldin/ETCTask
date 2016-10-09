@@ -1,0 +1,66 @@
+@model ETCTask.Models.ProductDetail
+
+<div class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Product Details</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container-fluid">
+                        <div class="col-md-6">
+                            <table class="table borderRm">
+                                <tr>
+                                    <th>Product Id</th>
+                                    <th>@Html.DisplayFor(model => model.ProductDetailId)</th>
+                                </tr>
+                                <tr>
+                                    <th class="wd">Product Name</th>
+                                    <th>
+                                        <p class="">
+                                            @Html.DisplayFor(model => model.Product.ProductName)
+                                        </p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>
+                                        <p class="">
+                                            @Html.DisplayFor(model => model.Description)
+                                        </p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Creation date</th>
+                                    <th>
+                                        <samp class="">
+                                            @Html.DisplayFor(model => model.DateCreated)
+                                        </samp>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Updated date</th>
+                                    <th>
+                                        <p class="">
+                                            @Html.DisplayFor(model => model.DateUpdated)
+                                        </p>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            @if (Model.Image.IsEmpty())
+                            {
+                                Model.Image = "No_Image_Available.png";
+                            }
+                            <img src="~/Content/image/@Model.Image" alt="Not Found!" class="img-responsive"/>
+                        </div>
+                        @Html.ActionLink("Back", "Index", null, new {@class = "btn btn-default"})
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

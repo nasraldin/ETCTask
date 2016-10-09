@@ -1,0 +1,97 @@
+﻿@using ETCTask.Core
+@model IEnumerable<ETCTask.Models.Product>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="col-md-12 col-sm-12">
+    <div class="alert alert-info text-center">
+        <h3>Login info</h3>
+        <div class="table-responsive info-login">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>admin</td>
+                    <td>123456</td>
+                    <td>Super Admin</td>
+                </tr>
+                <tr>
+                    <td>user</td>
+                    <td>123456</td>
+                    <td>User</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3">
+    <div class="alert alert-info" role="alert">
+        <div class="list-group">
+            <a class="list-group-item active">List of Category</a>
+            @foreach (var cat in ViewBag.category)
+            {
+                <a href="#" class="list-group-item">
+                    @cat.CategoryName
+                    <span class="badge">
+                        @cat.Products.Count
+                    </span>
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="col-md-9">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Featured List of product</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                @foreach (var items in Model.Count(3))
+                {
+                    foreach (var item in items)
+                    {
+                        if (item.Icon.IsEmpty())
+                        {
+                            item.Icon = "No_Image_Available.png";
+                        }
+
+                        <div class="col-sm-6 col-md-4">
+                            <a href="@("Home/Details/")@item.ProductId" class="p-hover showDetail" data-modal>
+                                <div class="thumbnail">
+                                    <img class="img-responsive pic-size" src="~/Content/image/@item.Icon"/>
+                                    <div class="caption">
+                                        <h3>@Html.DisplayFor(modelItem => item.ProductName)</h3>
+                                        <p>@Html.DisplayFor(modelItem => item.Note)</p>
+                                        <p>@Html.DisplayFor(modelItem => item.DateCreated)</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                }
+                <div id="getD"></div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <input type="button" id="btn-more" class="btn btn-primary btn-lg" value="More >>"/>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/MoreProduct.js"></script>
+}
+@Html.Partial("_Modaldialog")
+<script src="~/Scripts/Modaldialog.js"></script>

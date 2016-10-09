@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ETCTask.Models.Product>
+
+@foreach (var item in Model)
+{
+    if (item.Icon.IsEmpty())
+    {
+        item.Icon = "No_Image_Available.png";
+    }
+
+    <div class="col-sm-6 col-md-4">
+        <a href="@("Home/DetailsV/")@item.ProductId" class="p-hover">
+            <div class="thumbnail">
+                <img class="img-responsive pic-size" src="~/Content/image/@item.Icon"/>
+                <div class="caption">
+                    <h3>@Html.DisplayFor(modelItem => item.ProductName)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.Note)</p>
+                    <p>@Html.DisplayFor(modelItem => item.DateCreated)</p>
+                </div>
+            </div>
+        </a>
+    </div>
+}

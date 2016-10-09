@@ -1,0 +1,41 @@
+﻿@model ETCTask.Models.Category
+
+@{
+    ViewBag.Title = "Edit Category";
+}
+<div class="center">
+    <div class="col-md-6 fnon">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Category Name</h3>
+            </div>
+            <div class="panel-body">
+                <div class="container-fluid">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.CategoryId)
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.EditorFor(model => model.CategoryName, new {htmlAttributes = new {@class = "form-control"}})
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-default btn-lg"/>
+                                    @Html.ActionLink("Back", "Index", null, new {@class = "btn btn-default btn-lg"})
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

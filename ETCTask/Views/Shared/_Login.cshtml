@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
+    @Styles.Render("~/Content/login")
+    @Styles.Render("~/Content/animate")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-push-4 col-md-4 col-sm-push-3 col-sm-6 col-sx-12">
+            <div class="login-container">
+                <div class="login-wrapper animated zoomIn">
+                    <div id="login" class="show">
+                        <div class="login-header">
+                            <h4>@ViewBag.Title</h4>
+                        </div>
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright default_color">
+        <div class="alert alert-info text-center wsm container" role="alert">
+            <a class="white-text" href="@("/")">ETC Task @DateTime.Now.Year |</a>
+            Developed by : <a class="white-text" href="http://nasraldin.com" target="_blank">Nasr Aldin</a>.
+        </div>
+    </div>
+</div>
+@RenderSection("scripts", false)
+</body>
+</html>

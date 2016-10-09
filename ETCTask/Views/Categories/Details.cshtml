@@ -1,0 +1,27 @@
+﻿@model ETCTask.Models.Category
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 class="modal-title" id="ModalLabel">Category Info</h3>
+</div>
+<div class="modal-body">
+    <div>
+        <dl class="dl-horizontal container">
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CategoryId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CategoryName)
+            </dd>
+        </dl>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" type="button" data-dismiss="modal">Colse</button>
+</div>

@@ -1,0 +1,43 @@
+﻿@model ETCTask.Models.Auth.Group
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 class="modal-title" id="ModalLabel">Group Details</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="thumbnail">
+                <div class="caption">
+                    <table class="table table-responsive table-striped">
+                        <tr>
+                            <th>Group Name</th>
+                            <th></th>
+                        </tr>
+
+                        <tr style="font-size: 16px;">
+                            <td>@Html.DisplayFor(model => model.Name)</td>
+                            <th></th>
+                        </tr>
+                    </table>
+                    <h4>List of permissions in this group</h4>
+                    @if (ViewBag.PermissionsCount == 0)
+
+                    {
+                        <h3 class="text-info">No permissions found!</h3>
+                    }
+                    <ul class="list-group">
+                        @foreach (var item in ViewBag.RolesList)
+
+                        {
+                            <li class="list-group-item">@item</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default m-t-lg" type="button" data-dismiss="modal">Colse</button>
+</div>

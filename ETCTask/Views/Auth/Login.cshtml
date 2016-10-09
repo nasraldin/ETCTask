@@ -1,0 +1,27 @@
+@model ETCTask.ViewModel.LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/shared/_Login.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Auth", new {ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+{
+    @Html.AntiForgeryToken()
+    <div class="alert alert-info text-center font-sz" role="alert">
+        Enter Username & password to login.
+    </div>
+    <div class="form-group has-feedback">
+        @Html.TextBoxFor(m => m.UserName, new {@class = "form-control", placeholder = "Username", autofocus = "autofocus"})
+        <i class="glyphicon glyphicon-user text-info form-control-feedback"></i>
+        @Html.ValidationMessageFor(model => model.UserName, null, new {@class = "text-danger"})
+    </div>
+    <div class="form-group has-feedback">
+        @Html.PasswordFor(m => m.Password, new {@class = "form-control", placeholder = "Password"})
+        <i class="glyphicon glyphicon-asterisk text-danger form-control-feedback"></i>
+        @Html.ValidationMessageFor(model => model.Password, null, new {@class = "text-danger"})
+    </div>
+    <input type="submit" value="Log in" class="btn btn-info btn-lg btn-block"/>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

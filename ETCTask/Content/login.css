@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url("fonts/glyphicons-halflings-regular.eot");
+    src: url("fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("fonts/glyphicons-halflings-regular.woff") format("woff"), url("fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg");
+}
+
+body {
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background: #3498db no-repeat center center fixed;
+    background-size: cover;
+    color: #4d4d4d;
+    font: normal 12px 'Open Sans', arial, sans-serif;
+    margin: 0;
+    width: 100%;
+}
+
+/*  Login page CSS  */
+
+.login-container {
+    margin: 4% auto;
+    margin-top: 35%;
+    text-align: center;
+}
+
+.login-container .login-header {
+    background: #f2f2f2;
+    border-bottom: 1px solid #d9d9d9;
+    border-radius: 4px 4px 0 0;
+    font-weight: 800;
+    padding: 10px 5px;
+    text-align: center;
+}
+
+.login-container .login-wrapper {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    background: white;
+    border-radius: 4px;
+    padding-bottom: 20px;
+}
+
+.login-container .login-wrapper h5 { margin-top: 30px; }
+
+.login-container a.fb-btn {
+    height: 48px;
+    margin: 20px auto;
+    padding: 0;
+    width: 300px;
+}
+
+.login-container form { padding: 20px 25px; }
+
+.login-container .form-control {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    box-shadow: none;
+    height: 48px;
+}
+
+.login-container .form-control:focus { border: 1px solid #a4c2dc; }
+
+.login-container .form-control-feedback { font-size: 30px; }
+
+.login-container .form-group label {
+    display: block;
+    font-size: 16px;
+    text-align: left !important;
+}
+
+.login-container a {
+    display: block;
+    padding: 15px;
+}
+
+.login-container a.underline { text-decoration: underline; }
+
+.form-control {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -webkit-box-shadow: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 22px;
+}
+
+.form-control:focus {
+    -webkit-box-shadow: none;
+    border: 1px solid #1A4D80;
+    box-shadow: none;
+}
+
+.form-control-feedback {
+    height: 15px;
+    top: 8px;
+}
+
+.form-control-feedback.glyphicon {
+    height: 15px;
+    right: 10px;
+}
+
+.text-danger {
+    color: #d66061 !important;
+    font-size: 20px;
+    list-style: none;
+}
+
+.text-danger li { list-style: none; }
+
+.text-info { color: #5b90bf !important; }
+
+.form-horizontal .has-feedback .form-control-feedback { right: 4px; }
+
+.has-feedback label ~ .form-control-feedback { top: 30px; }
+
+.wsm { width: 30%; }
+
+.form-horizontal .form-group {
+    margin-left: -6px;
+    margin-right: -6px;
+}
+
+.font-sz { font-size: 16px; }

@@ -1,0 +1,108 @@
+﻿@model ETCTask.Models.ProductDetail
+
+@{
+    ViewBag.Title = "Add Product";
+}
+
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new {enctype = "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="col-sm-12 col-md-8">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Product.CategoryId, "Category", new {@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    @Html.DropDownList("CategoryId", null, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(model => model.Product.CategoryId, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductId, "Product", new {@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    <select id="ProductId" name="ProductId" class="form-control"></select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Image, new {@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    <input id="fileBase" name="fileBase" type="file" class="control-label" onchange="readURL(this);"/>
+                    @Html.ValidationMessageFor(model => model.Image, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, new {@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new {htmlAttributes = new {@class = "form-control"}})
+                    @Html.ValidationMessageFor(model => model.Description, "", new {@class = "text-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add" class="btn btn-default"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <img src="" id="dispimg" class="img-responsive img-thumbnail hidden" alt="Upload file"/>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document)
+            .ready(function() {
+                $('#CategoryId')
+                    .change(function() {
+                        $.ajax({
+                            url: '/Products/GetProducts/' + $("#CategoryId").find(':selected').val(),
+                            type: "GET",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function(result) {
+                                var items = '<option value="">Select Product</option>';
+                                $.each(result,
+                                    function(product, productId) {
+                                        items += "<option value='" + productId + "'>" + product + "</option>";
+                                    });
+                                $('#ProductId').html(items);
+                            },
+                            error: function() {
+                            }
+                        });
+                    });
+            });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#dispimg')
+                        .attr('src', e.target.result)
+                        .height(350)
+                        .removeClass('hidden');
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                $('#dispimg').addClass('hidden');
+            }
+        }
+
+        function readimgURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#dispimg')
+                        .attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}

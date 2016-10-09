@@ -1,0 +1,196 @@
+﻿//this file wirtin in SASS Lang and well compile .css
+// Mixins are functions that we can pass values into
+@mixin margin-size($size: 0 0 0 0){
+	margin: $size;
+}
+@mixin padding-size($size: 0 0 0 0){
+	padding: $size;
+}
+@mixin text-color($tc){
+	color: $tc;
+}
+@mixin keyframes(){
+	0% {
+	-webkit-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	transform: rotate(0deg);
+	}
+	100% {
+	-webkit-transform: rotate(360deg);    
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+	}
+}
+@mixin transition($trans) {
+	-webkit-transition: $trans;
+	-moz-transition: $trans;
+	-o-transition: $trans;
+	transition: $trans;
+}
+@mixin box-sizing($box-s) {
+	-webkit-box-sizing: $box-s;
+	-moz-box-sizing: $box-s;
+	box-sizing: $box-s;
+}
+
+// color
+$white: white;
+$black: black;
+$blue: blue;
+$light-gray-rgba: rgba(0, 0, 0, .1);
+$light-gray: #f2f2f2;
+$green-accent: #69f0ae;
+$indigo-dark: #1a237e;
+$error: #f44336;
+$success: #00e676;
+$primary-color: $indigo-dark !default;
+$secondary-color: $green-accent !default;
+$color1: rgba(50,50,50,1);
+$color2:#3498db;
+$color3:#2980b9;
+$color4:#d0d1d5;
+$color5:#95a5a6;
+
+// font family & size
+$OpenSans: 'Open Sans', sans-serif;
+$font-14:14px;
+$font-18:18px;
+$font-20:20px;
+$font-22:22px;
+$font-24:24px;
+$font-26:26px;
+
+/* Bootstrap Overrides */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('fonts/glyphicons-halflings-regular.eot');
+  src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+//sass->css style
+html {
+	position: relative;
+	min-height: 100%;
+}
+body{
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	@include margin-size(0);
+	@include padding-size(70px);
+	overflow-x: hidden;
+	color:$black;
+	background-color: $white;
+	font-family: $OpenSans;
+	font-size: $font-14;
+	line-height: 1.2;
+	-webkit-font-smoothing: antialiased;
+	a{
+		@include transition(0.5s all ease);
+		text-decoration:none;
+		color:$black;
+		font-size:medium;
+		&:hover{
+			text-decoration:none;
+			color:$color1;
+		}
+	}
+}
+* {
+	@include box-sizing(border-box);
+}
+.container{
+	@include padding-size(0);
+}
+.navbar-color {
+	background-color: $color2;
+	border-color: #e7e7e7;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus, .nav > li > a:hover, .nav > li > a:focus {
+	background-color:$color3;
+}
+.navbar-toggle {
+	background-color: #2c3e50;
+	border: 1px solid blue;
+}
+.breadcrumb{
+	background-color:$color4;
+	font-size:$font-20;
+}
+.pic-size{
+	width:160px;
+	height:130px !important;
+}
+.p-hover{
+	text-decoration:none;
+	&:focus{text-decoration:none;}
+	.thumbnail{
+		.caption{
+			h3{margin-top:6px;}
+			p{margin-bottom:2px;}
+		}
+		&:hover{border-color:$color3;}
+	}
+}
+#btn-more{
+	width:100%
+}
+.dialogStyle{
+	height:auto !important;
+	width:auto !important
+	
+}
+.borderRm{
+	border-top-style: hidden
+}
+.wd{
+	width:30%
+}
+.info-login{
+	width:50%;
+	margin: 0 auto;
+	thead tr th {
+	text-align: center;
+}
+}
+@media (max-width: 767px) {
+	.info-login{
+		width:auto;
+	}
+	.logo-i{
+		margin:0 !important;
+		margin-top:6px !important;
+		margin-left:20px !important;
+	}
+	.navbar-toggle{
+		margin-right:24px;
+	}
+	.navbar-nav>li>a {
+	padding-left: 30px;
+	}
+}
+.mrg{
+	padding:20px;
+	table{
+		width:60%;
+	}
+}
+.center{
+	margin:0 auto;
+	display:block;
+	position:relative;
+	div.fnon{
+		float:none !important;
+		margin:auto
+	}
+}
+.logo-i{
+	font-size: xx-large;
+	float: left;
+	margin-right: 8px;
+	margin-top: 4px;
+	color:blue
+}
+.red{
+	color:$error;
+}

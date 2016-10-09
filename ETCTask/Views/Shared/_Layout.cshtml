@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simple Test from ETC"/>
+    <meta name="keywords" content="demo,test"/>
+    <meta name="Author" content="nasr aldin [http://nasraldin.com]"/>
+    <title>@ViewBag.Title - Test App</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+
+</head>
+<body>
+<!-- Start Site layout -->
+@Html.Partial("_NavBar")
+<!--Start container -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li>@ViewBag.Title</li>
+    </ol>
+    <div class="row">
+        @RenderBody()
+    </div>
+</div>
+<!--end container -->
+@Html.Partial("_Footer")
+<!-- end Site layout -->
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", false)
+</body>
+</html>

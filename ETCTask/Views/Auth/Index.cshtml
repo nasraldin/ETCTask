@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ETCTask.Models.Auth.User>
+
+@{
+    ViewBag.Title = "User Control";
+}
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a data-toggle="tab" href="#Users">Users</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#Permissions">Permissions</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#Groups">Groups</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div id="Users" class="tab-pane fade in active">
+            <div class="container mrg">
+                @{ Html.RenderPartial("_Users"); }
+            </div>
+        </div>
+        <div id="Permissions" class="tab-pane fade">
+            <div class="container mrg">
+                @{ Html.RenderAction("Index", "Roles"); }
+            </div>
+        </div>
+        <div id="Groups" class="tab-pane fade">
+            <div class="container mrg">
+                @{ Html.RenderAction("Index", "Groups"); }
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_Modaldialog")
+
+@section scripts{
+    <script src="~/Scripts/Modaldialog.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

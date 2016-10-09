@@ -1,0 +1,67 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<ETCTask.Models.ProductDetail>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
+@{
+    ViewBag.Title = "Products";
+}
+
+<div class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">List of Product</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        @Html.ActionLink("Add New Product", "Create", null, new {data_modal = "", @class = "btn btn-primary"})
+                    </p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Category Name")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Product Name")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Description")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Image")
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.Image.IsEmpty())
+                            {
+                                item.Image = "No_Image_Available.png";
+                            }
+                            <tr class="text-center" onclick="location.href = '/Products/ViewDetails/' + @item.ProductDetailId;">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Product.Category.CategoryName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Product.ProductName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    <img src="~/Content/image/@item.Image" class="img-thumbnail" width="140" height="140">
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    <br/>
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                    @Html.PagedListPager(Model, page => Url.Action("Index",
+                        new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
