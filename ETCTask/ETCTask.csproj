@@ -202,6 +202,7 @@
     <Compile Include="ViewModel\RoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\TextFile1.txt" />
     <Content Include="Content\animate.min.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -279,7 +280,6 @@
     <Content Include="Views\Products\ViewDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\image\" />
   </ItemGroup>
   <ItemGroup>
